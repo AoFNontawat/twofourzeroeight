@@ -13,7 +13,7 @@ namespace twozerofoureight
     public partial class TwoZeroFourEightView : Form, View
     {
         Model model;
-        Controller controller;
+        Controller controller;   
        
         public TwoZeroFourEightView()
         {
@@ -29,7 +29,6 @@ namespace twozerofoureight
         {
             UpdateBoard(((TwoZeroFourEightModel) m).GetBoard());
         }
-
         private void UpdateTile(Label l, int i)
         {
             if (i != 0)
@@ -97,5 +96,9 @@ namespace twozerofoureight
             controller.ActionPerformed(TwoZeroFourEightController.DOWN);
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
