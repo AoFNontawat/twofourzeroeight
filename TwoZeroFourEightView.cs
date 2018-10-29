@@ -25,12 +25,23 @@ namespace twozerofoureight
             controller.ActionPerformed(TwoZeroFourEightController.LEFT);
         }
 
+        public string UpdateScore(Model s)
+        {
+            return ((TwoZeroFourEightModel)s).GetScore() ;
+        }
+        public string UpdateOver(Model s)
+        {
+            return ((TwoZeroFourEightModel)s).GameOver();
+        }
+
         public void Notify(Model m)
         {
-            UpdateBoard(((TwoZeroFourEightModel) m).GetBoard());
+            UpdateBoard(((TwoZeroFourEightModel)m).GetBoard());
         }
         private void UpdateTile(Label l, int i)
         {
+            Display.Text = UpdateScore(model);
+            DisplayOver.Text = UpdateOver(model);
             if (i != 0)
             {
                 l.Text = Convert.ToString(i);
@@ -96,9 +107,21 @@ namespace twozerofoureight
             controller.ActionPerformed(TwoZeroFourEightController.DOWN);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void KeyDown(object sender, PreviewKeyDownEventArgs e)
         {
+            switch(e.KeyCode)
+            {
+                case Keys.Down :
+                    controller.ActionPerformed(TwoZeroFourEightController.DOWN); break;
+                case Keys.Up:
+                    controller.ActionPerformed(TwoZeroFourEightController.UP); break;
+                case Keys.Right:
+                    controller.ActionPerformed(TwoZeroFourEightController.RIGHT); break;
+                case Keys.Left:
+                    controller.ActionPerformed(TwoZeroFourEightController.LEFT); break;
 
-        }
+            }
+            
+        }  
     }
 }

@@ -49,7 +49,8 @@
             this.btnRight = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Display = new System.Windows.Forms.Label();
+            this.DisplayOver = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl00
@@ -237,6 +238,7 @@
             this.btnLeft.Text = "<";
             this.btnLeft.UseVisualStyleBackColor = true;
             this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
+            this.btnLeft.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.KeyDown);
             // 
             // btnUp
             // 
@@ -247,6 +249,7 @@
             this.btnUp.Text = "^";
             this.btnUp.UseVisualStyleBackColor = true;
             this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+            this.btnUp.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.KeyDown);
             // 
             // btnRight
             // 
@@ -257,6 +260,7 @@
             this.btnRight.Text = ">";
             this.btnRight.UseVisualStyleBackColor = true;
             this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
+            this.btnRight.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.KeyDown);
             // 
             // btnDown
             // 
@@ -267,32 +271,44 @@
             this.btnDown.Text = "v";
             this.btnDown.UseVisualStyleBackColor = true;
             this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+            this.btnDown.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.KeyDown);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label1.Location = new System.Drawing.Point(65, 305);
+            this.label1.Location = new System.Drawing.Point(48, 321);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 31);
             this.label1.TabIndex = 20;
             this.label1.Text = "Score";
             // 
-            // textBox1
+            // Display
             // 
-            this.textBox1.Location = new System.Drawing.Point(35, 340);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 55);
-            this.textBox1.TabIndex = 21;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Display.AutoSize = true;
+            this.Display.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.Display.Location = new System.Drawing.Point(48, 364);
+            this.Display.Name = "Display";
+            this.Display.Size = new System.Drawing.Size(0, 31);
+            this.Display.TabIndex = 21;
+            // 
+            // DisplayOver
+            // 
+            this.DisplayOver.AutoSize = true;
+            this.DisplayOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.DisplayOver.Location = new System.Drawing.Point(20, 403);
+            this.DisplayOver.Name = "DisplayOver";
+            this.DisplayOver.Size = new System.Drawing.Size(153, 31);
+            this.DisplayOver.TabIndex = 22;
+            this.DisplayOver.Text = "Game Over";
             // 
             // TwoZeroFourEightView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(416, 484);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.DisplayOver);
+            this.Controls.Add(this.Display);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDown);
             this.Controls.Add(this.btnRight);
@@ -344,7 +360,8 @@
         private System.Windows.Forms.Button btnRight;
         private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label Display;
+        private System.Windows.Forms.Label DisplayOver;
     }
 }
 
